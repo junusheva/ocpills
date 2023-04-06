@@ -4,7 +4,7 @@ import { Input } from "@rneui/themed";
 
 export default function Form() {
   return (
-    <View className="flex-1 items-center justify-center p-10">
+    <>
       <Input
         containerStyle={{}}
         disabledInputStyle={{ background: "#ddd" }}
@@ -35,6 +35,6 @@ export default function Form() {
         label=""
         placeholder="How many pills were taken"
       />
-    </View>
+    </>
   );
 }
