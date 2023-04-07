@@ -2,39 +2,20 @@ import { View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Input } from "@rneui/themed";
 
-export default function Form() {
+export default function Form(props) {
+  const { formFields } = props;
   return (
     <>
-      <Input
-        containerStyle={{}}
-        disabledInputStyle={{ background: "#ddd" }}
-        inputContainerStyle={{}}
-        inputStyle={{}}
-        labelStyle={{}}
-        labelProps={{}}
-        label=""
-        placeholder="Number of hormone pills"
-      />
-      <Input
-        containerStyle={{}}
-        disabledInputStyle={{ background: "#ddd" }}
-        inputContainerStyle={{}}
-        inputStyle={{}}
-        labelStyle={{}}
-        labelProps={{}}
-        label=""
-        placeholder="Number of placebo pills"
-      />
-      <Input
-        containerStyle={{}}
-        disabledInputStyle={{ background: "#ddd" }}
-        inputContainerStyle={{}}
-        inputStyle={{}}
-        labelStyle={{}}
-        labelProps={{}}
-        label=""
-        placeholder="How many pills were taken"
-      />
+      {Object.keys(formFields).map((fieldKey) => {
+        const field = formFields[fieldKey];
+        return (
+          <Input
+            value={field?.value}
+            disabledInputStyle={{ background: "#ddd" }}
+            placeholder={field.placeholder}
+          />
+        );
+      })}
     </>
   );
 }
